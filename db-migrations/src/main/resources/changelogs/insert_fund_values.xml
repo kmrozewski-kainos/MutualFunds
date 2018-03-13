@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet id="create_table_fund" author="konradm">
+        <insert tableName="fund">
+            <column name="name">Fundusz Polski 1</column>
+            <column name="type">Polskie</column>
+        </insert>
+        <insert tableName="fund">
+            <column name="name">Fundusz Polski 2</column>
+            <column name="type">Polskie</column>
+        </insert>
+        <insert tableName="fund">
+            <column name="name">Fundusz Polski 3</column>
+            <column name="type">Polskie</column>
+        </insert>
+        <insert tableName="fund">
+            <column name="name">Fundusz Zagraniczny 1</column>
+            <column name="type">Zagraniczne</column>
+        </insert>
+        <insert tableName="fund">
+            <column name="name">Fundusz Zagraniczny 2</column>
+            <column name="type">Zagraniczne</column>
+        </insert>
+        <insert tableName="fund">
+            <column name="name">Fundusz Zagraniczny 3</column>
+            <column name="type">Zagraniczne</column>
+        </insert>
+        <insert tableName="fund">
+            <column name="name">Fundusz Pieniężny 1</column>
+            <column name="type">Pieniężne</column>
+        </insert>
+        <insert tableName="fund">
+            <column name="name">Fundusz Pieniężny 2</column>
+            <column name="type">Pieniężne</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
