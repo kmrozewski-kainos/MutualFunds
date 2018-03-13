@@ -1,0 +1,7 @@
+database:
+  driverClass: org.postgresql.Driver
+  user: postgres
+  password: postgres
+  url: jdbc:postgresql://localhost:5432/postgres
+  properties:
+    charSet: UTF-8

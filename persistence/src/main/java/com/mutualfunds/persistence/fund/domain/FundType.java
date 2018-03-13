@@ -1,4 +1,4 @@
-package com.mutualfunds.persistence.domain;
+package com.mutualfunds.persistence.fund.domain;
 
 public enum FundType {
     MONEY ("Pieniężny"),

@@ -1,9 +1,11 @@
-package com.mutualfunds.persistence.dao.hibernate.entities;
+package com.mutualfunds.persistence.fund;
 
-import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,17 +17,16 @@ import lombok.Setter;
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
 
-import com.mutualfunds.persistence.domain.FundType;
+import com.mutualfunds.persistence.fund.domain.FundType;
 
-@Entity
-@Table(name = "fund")
 @Getter
 @Setter
+@Entity
+@Table(name = "fund")
 @NamedQueries({
-    @NamedQuery(name = "getFunds", query = "select f from Fund f"),
-
+    @NamedQuery(name = "getFunds", query = "select f from FundEntity f")
 })
-public class FundEntity {
+public class FundEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -33,6 +34,6 @@ public class FundEntity {
 
     private String name;
 
-    @Enumerated(STRING)
+    @Enumerated(EnumType.STRING)
     private FundType type;
 }
