@@ -1,18 +1,14 @@
 package com.mutualfunds.persistence.fund.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.ToString;
+
+@ToString
+@AllArgsConstructor
 public enum FundType {
-    MONEY ("Pieniężny"),
-    POLISH ("Polski"),
-    FOREIGN ("Zagraniczny");
+    FOREIGN("Zagraniczne"),
+    MONEY("Pieniężne"),
+    POLISH("Polskie");
 
     private final String name;
-
-    FundType(final String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return name;
-    }
 }

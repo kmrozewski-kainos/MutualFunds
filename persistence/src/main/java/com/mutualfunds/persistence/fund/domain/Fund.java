@@ -1,12 +1,10 @@
 package com.mutualfunds.persistence.fund.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class Fund {
 
     private String name;
-    private FundType type;
+    private String type;
 }
