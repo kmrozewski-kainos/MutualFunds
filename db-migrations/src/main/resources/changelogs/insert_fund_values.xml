@@ -7,35 +7,35 @@
     <changeSet id="insert_fund_values" author="konradm">
         <insert tableName="fund">
             <column name="name">Fundusz Polski 1</column>
-            <column name="type">Polskie</column>
+            <column name="type">POLISH</column>
         </insert>
         <insert tableName="fund">
             <column name="name">Fundusz Polski 2</column>
-            <column name="type">Polskie</column>
+            <column name="type">POLISH</column>
         </insert>
         <insert tableName="fund">
             <column name="name">Fundusz Polski 3</column>
-            <column name="type">Polskie</column>
+            <column name="type">POLISH</column>
         </insert>
         <insert tableName="fund">
             <column name="name">Fundusz Zagraniczny 1</column>
-            <column name="type">Zagraniczne</column>
+            <column name="type">FOREIGN</column>
         </insert>
         <insert tableName="fund">
             <column name="name">Fundusz Zagraniczny 2</column>
-            <column name="type">Zagraniczne</column>
+            <column name="type">FOREIGN</column>
         </insert>
         <insert tableName="fund">
             <column name="name">Fundusz Zagraniczny 3</column>
-            <column name="type">Zagraniczne</column>
+            <column name="type">FOREIGN</column>
         </insert>
         <insert tableName="fund">
             <column name="name">Fundusz Pieniężny 1</column>
-            <column name="type">Pieniężne</column>
+            <column name="type">MONEY</column>
         </insert>
         <insert tableName="fund">
             <column name="name">Fundusz Pieniężny 2</column>
-            <column name="type">Pieniężne</column>
+            <column name="type">MONEY</column>
         </insert>
     </changeSet>
 </databaseChangeLog>

@@ -1,4 +1,4 @@
-package com.mutualfunds.fund.configuration;
+package com.mutualfunds.configuration;
 
 import static org.modelmapper.convention.MatchingStrategies.STRICT;
 

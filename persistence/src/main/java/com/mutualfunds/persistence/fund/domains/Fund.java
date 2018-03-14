@@ -1,4 +1,4 @@
-package com.mutualfunds.persistence.fund.domain;
+package com.mutualfunds.persistence.fund.domains;
 
 import lombok.Data;
 
@@ -6,5 +6,5 @@ import lombok.Data;
 public class Fund {
 
     private String name;
-    private FundType type;
+    private String type;
 }

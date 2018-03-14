@@ -1,4 +1,4 @@
-package com.mutualfunds.persistence.fund;
+package com.mutualfunds.persistence.fund.dao;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,8 +14,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.mutualfunds.persistence.fund.domain.Fund;
-import com.mutualfunds.persistence.fund.mapper.FundMapper;
+import com.mutualfunds.persistence.fund.entities.FundEntity;
+import com.mutualfunds.persistence.fund.domains.Fund;
+import com.mutualfunds.persistence.fund.mappers.FundMapper;
 
 @Transactional
 @Repository
@@ -23,7 +24,7 @@ import com.mutualfunds.persistence.fund.mapper.FundMapper;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class FundDaoImpl implements FundDao {
 
-    private final @NonNull FundMapper fundMapper;
+    private final @NonNull FundMapper mapper;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -34,7 +35,7 @@ public class FundDaoImpl implements FundDao {
             .createNamedQuery("getFunds", FundEntity.class)
             .getResultList()
             .stream()
-            .map(fundMapper::mapEntityToDomain)
+            .map(mapper::mapEntityToDomain)
             .collect(Collectors.toList());
     }
 }
