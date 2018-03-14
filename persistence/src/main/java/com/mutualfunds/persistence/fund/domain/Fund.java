@@ -6,5 +6,5 @@ import lombok.Data;
 public class Fund {
 
     private String name;
-    private String type;
+    private FundType type;
 }

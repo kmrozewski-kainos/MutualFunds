@@ -15,29 +15,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mutualfunds.fund.domain.FundAllocation;
-import com.mutualfunds.fund.request.PlanRequest;
-import com.mutualfunds.persistence.fund.FundEntity;
+import com.mutualfunds.fund.model.FundAllocation;
+import com.mutualfunds.fund.model.InvestmentPlanRequest;
+import com.mutualfunds.fund.model.InvestmentPlanResponse;
+import com.mutualfunds.fund.service.InvestmentService;
 import com.mutualfunds.persistence.fund.domain.Fund;
 
 @Controller
 @RequestMapping("fund")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class FundController {
+public class InvestmentController {
 
-    private final @NonNull FundService fundService;
-
-    @GetMapping("all")
-    public ResponseEntity<List<Fund>> getFunds() {
-        List<Fund> list = fundService.getAllFunds();
-
-        return new ResponseEntity<>(list, OK);
-    }
+    private final @NonNull InvestmentService investmentService;
 
     @RequestMapping(value = "plan", method = POST, consumes = "application/json", produces = "application/json")
-    public ResponseEntity<List<FundAllocation>> getPlan(@RequestBody PlanRequest planRequest) {
-        List<FundAllocation> fundAllocations = fundService.getPlan(planRequest.getFundType(), planRequest.getAmountToInvest());
+    public ResponseEntity<InvestmentPlanResponse> getPlan(@RequestBody InvestmentPlanRequest investmentPlanRequest) {
+        InvestmentPlanResponse plan = investmentService.getPlan(
+            investmentPlanRequest.getFundType(),
+            investmentPlanRequest.getSelectedFunds(),
+            investmentPlanRequest.getAmountToInvest());
 
-        return new ResponseEntity<>(fundAllocations, OK);
+        return new ResponseEntity<>(plan, OK);
     }
 }

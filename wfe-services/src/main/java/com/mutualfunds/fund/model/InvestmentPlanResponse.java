@@ -1,4 +1,4 @@
-package com.mutualfunds.fund.domain;
+package com.mutualfunds.fund.model;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Plan {
+public class InvestmentPlanResponse {
 
-    private List<InvestmentAmount> amountsToInvest;
+    private List<FundAllocation> fundAllocationList;
     private Integer residual;
 }
