@@ -1,4 +1,4 @@
-package com.mutualfunds.investment.util;
+package com.mutualfunds.util;
 
 @FunctionalInterface
 public interface ComparatorFunction<T, U> {

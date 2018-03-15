@@ -1,4 +1,4 @@
-package com.mutualfunds.investment.util;
+package com.mutualfunds.util;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;

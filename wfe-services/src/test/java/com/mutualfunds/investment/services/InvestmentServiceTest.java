@@ -3,9 +3,9 @@ package com.mutualfunds.investment.services;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import static com.mutualfunds.investment.util.JSONParser.fromJSON;
-import static com.mutualfunds.investment.util.ObjectComparator.compare;
-import static com.mutualfunds.investment.util.ObjectComparator.compareList;
+import static com.mutualfunds.util.JSONParser.fromJSON;
+import static com.mutualfunds.util.ObjectComparator.compare;
+import static com.mutualfunds.util.ObjectComparator.compareList;
 
 import java.util.List;
 

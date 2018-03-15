@@ -1,4 +1,4 @@
-package com.mutualfunds.investment.util;
+package com.mutualfunds.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
