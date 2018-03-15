@@ -5,11 +5,11 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    <changeSet id="create_table_investment_style" author="konradm">
-        <createSequence sequenceName="investmentstyle_id_seq" incrementBy="1" />
+    <changeSet id="create_table_investment_strategy" author="konradm">
+        <createSequence sequenceName="strategy_id_seq" incrementBy="1" />
 
-        <createTable tableName="investment_style">
-            <column name="id" type="bigint" defaultValueSequenceNext="investmentstyle_id_seq">
+        <createTable tableName="strategy">
+            <column name="id" type="bigint" defaultValueSequenceNext="strategy_id_seq">
                 <constraints primaryKey="true" nullable="false" />
             </column>
             <column name="name" type="java.sql.Types.VARCHAR(50)">

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import com.mutualfunds.investment.models.FundAllocation;
 import com.mutualfunds.investment.models.InvestmentPlanResponse;
 import com.mutualfunds.persistence.fund.domains.Fund;
+import com.mutualfunds.persistence.strategy.domains.Strategy;
 import com.mutualfunds.strategy.services.StrategyService;
 
 @Service
@@ -25,21 +26,21 @@ public class InvestmentServiceImpl implements InvestmentService {
     private final @NonNull StrategyService investmentStrategyService;
 
     @Override
-    public InvestmentPlanResponse getPlan(String style, List<Fund> selectedFunds, Integer totalAmount) {
-        val investmentPlan = splitAmountBetweenFundTypes(investmentStrategyService.getInvestmentStrategy(style), totalAmount);
+    public InvestmentPlanResponse getPlan(String strategy, List<Fund> selectedFunds, Integer totalAmount) {
+        val investmentPlan = splitAmountBetweenFundTypes(investmentStrategyService.getInvestmentStrategy(strategy), totalAmount);
         val investmentSubPlan = getInvestmentSubPlan(investmentPlan, selectedFunds, totalAmount);
 
         return new InvestmentPlanResponse(investmentSubPlan, getResidual(totalAmount, investmentPlan));
     }
 
-    private List<FundAllocation> splitAmountBetweenFundTypes(List<FundAllocation> investmentStyles, Integer amount) {
-        return investmentStyles
+    private List<FundAllocation> splitAmountBetweenFundTypes(List<Strategy> investmentStrategies, Integer amount) {
+        return investmentStrategies
             .stream()
-            .map(investment -> mapToInvestmentAmount(investment, amount))
+            .map(strategy -> mapToInvestmentAmount(strategy, amount))
             .collect(Collectors.toList());
     }
 
-    private FundAllocation mapToInvestmentAmount(FundAllocation investment, Integer amount) {
+    private FundAllocation mapToInvestmentAmount(Strategy investment, Integer amount) {
         return new FundAllocation()
             .setType(investment.getType())
             .setShare(investment.getShare())

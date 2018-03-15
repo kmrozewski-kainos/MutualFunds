@@ -1,9 +1,9 @@
-package com.mutualfunds.persistence.style.domains;
+package com.mutualfunds.persistence.strategy.domains;
 
 import lombok.Data;
 
 @Data
-public class Style {
+public class Strategy {
 
     private String type;
     private Double share;

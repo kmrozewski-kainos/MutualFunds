@@ -1,4 +1,4 @@
-package com.mutualfunds.persistence.style.entities;
+package com.mutualfunds.persistence.strategy.entities;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -21,9 +21,9 @@ import org.hibernate.annotations.NamedQuery;
 @Entity
 @Table(name = "investment_style")
 @NamedQueries({
-    @NamedQuery(name = "getInvestmentStyleByName", query = "select i from StyleEntity i where i.name = :styleType")
+    @NamedQuery(name = "getInvestmentStyleByName", query = "select i from StrategyEntity i where i.name = :styleType")
 })
-public class StyleEntity implements Serializable {
+public class StrategyEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)

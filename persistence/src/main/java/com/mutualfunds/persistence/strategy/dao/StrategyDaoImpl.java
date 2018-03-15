@@ -1,4 +1,4 @@
-package com.mutualfunds.persistence.style.dao;
+package com.mutualfunds.persistence.strategy.dao;
 
 import java.util.stream.Stream;
 
@@ -13,17 +13,17 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.mutualfunds.persistence.style.domains.Style;
-import com.mutualfunds.persistence.style.entities.StyleEntity;
-import com.mutualfunds.persistence.style.mappers.StyleMapper;
+import com.mutualfunds.persistence.strategy.domains.Strategy;
+import com.mutualfunds.persistence.strategy.entities.StrategyEntity;
+import com.mutualfunds.persistence.strategy.mappers.StrategyMapper;
 
 @Transactional
 @Repository
 @AllArgsConstructor
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class StyleDaoImpl implements StyleDao {
+public class StrategyDaoImpl implements StrategyDao {
 
-    private final @NonNull StyleMapper mapper;
+    private final @NonNull StrategyMapper mapper;
     private static final String QUERY_NAME = "getInvestmentStyleByName";
     private static final String FILTERING_ARG = "styleType";
 
@@ -31,9 +31,9 @@ public class StyleDaoImpl implements StyleDao {
     private EntityManager entityManager;
 
     @Override
-    public Stream<Style> getInvestmentStylesByName(String styleType) {
+    public Stream<Strategy> getInvestmentStylesByName(String styleType) {
         return entityManager
-            .createNamedQuery(QUERY_NAME, StyleEntity.class)
+            .createNamedQuery(QUERY_NAME, StrategyEntity.class)
             .setParameter(FILTERING_ARG, styleType)
             .getResultList()
             .stream()

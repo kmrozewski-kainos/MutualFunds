@@ -10,19 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mutualfunds.investment.models.FundAllocation;
-import com.mutualfunds.persistence.style.dao.StyleDao;
+import com.mutualfunds.persistence.strategy.dao.StrategyDao;
+import com.mutualfunds.persistence.strategy.domains.Strategy;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class StrategyServiceImpl implements StrategyService {
 
-    private final @NonNull StyleDao styleDao;
+    private final @NonNull StrategyDao strategyDao;
 
     @Override
-    public List<FundAllocation> getInvestmentStrategy(String styleType) {
-        return styleDao
+    public List<Strategy> getInvestmentStrategy(String styleType) {
+        return strategyDao
             .getInvestmentStylesByName(styleType)
-            .map(investmentStyle -> new FundAllocation(investmentStyle.getType(), investmentStyle.getShare()))
             .collect(Collectors.toList());
     }
 }
