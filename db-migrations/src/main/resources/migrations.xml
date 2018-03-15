@@ -7,7 +7,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
     <include file="changelogs/create_table_fund.xml" />
-    <include file="changelogs/create_table_investment_style.xml" />
+    <include file="changelogs/create_table_strategy.xml" />
     <include file="changelogs/insert_fund_values.xml" />
-    <include file="changelogs/insert_investment_style_values.xml" />
+    <include file="changelogs/insert_strategy_values.xml" />
 </databaseChangeLog>

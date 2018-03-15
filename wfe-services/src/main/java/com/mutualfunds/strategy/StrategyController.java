@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mutualfunds.investment.models.FundAllocation;
+import com.mutualfunds.persistence.strategy.domains.Strategy;
 import com.mutualfunds.strategy.services.StrategyService;
 
 @Controller
@@ -25,7 +25,7 @@ public class StrategyController {
     private final @NonNull StrategyService strategyService;
 
     @GetMapping("{styleType}")
-    public ResponseEntity<List<FundAllocation>> getInvestmentStyles(@PathVariable(value = "styleType") String styleType) {
+    public ResponseEntity<List<Strategy>> getInvestmentStyles(@PathVariable(value = "styleType") String styleType) {
         return new ResponseEntity<>(strategyService.getInvestmentStrategy(styleType), OK);
     }
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Fundusz Polski 1",
+    "type": "POLISH"
+  },
+  {
+    "name": "Fundusz Polski 2",
+    "type": "POLISH"
+  },
+  {
+    "name": "Fundusz Polski 3",
+    "type": "POLISH"
+  },
+  {
+    "name": "Fundusz Zagraniczny 1",
+    "type": "FOREIGN"
+  },
+  {
+    "name": "Fundusz Zagraniczny 2",
+    "type": "FOREIGN"
+  },
+  {
+    "name": "Fundusz Zagraniczny 3",
+    "type": "FOREIGN"
+  }
+]

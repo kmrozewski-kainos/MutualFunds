@@ -1,0 +1,41 @@
+{
+  "fundAllocationList": [
+    {
+      "type": "POLISH",
+      "share": 0.0668,
+      "name": "Fundusz Polski 1",
+      "amount": 668
+    },
+    {
+      "type": "POLISH",
+      "share": 0.0666,
+      "name": "Fundusz Polski 2",
+      "amount": 666
+    },
+    {
+      "type": "POLISH",
+      "share": 0.0666,
+      "name": "Fundusz Polski 3",
+      "amount": 666
+    },
+    {
+      "type": "FOREIGN",
+      "share": 0.25,
+      "name": "Fundusz Zagraniczny 1",
+      "amount": 2500
+    },
+    {
+      "type": "FOREIGN",
+      "share": 0.25,
+      "name": "Fundusz Zagraniczny 2",
+      "amount": 2500
+    },
+    {
+      "type": "FOREIGN",
+      "share": 0.25,
+      "name": "Fundusz Zagraniczny 3",
+      "amount": 2500
+    }
+  ],
+  "residual": 500
+}

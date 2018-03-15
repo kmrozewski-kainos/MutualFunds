@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    <changeSet id="create_table_investment_strategy" author="konradm">
+    <changeSet id="create_table_strategy" author="konradm">
         <createSequence sequenceName="strategy_id_seq" incrementBy="1" />
 
         <createTable tableName="strategy">

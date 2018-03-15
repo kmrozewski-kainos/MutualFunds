@@ -1,0 +1,14 @@
+[
+  {
+    "type": "POLISH",
+    "share": 0.2
+  },
+  {
+    "type": "FOREIGN",
+    "share": 0.75
+  },
+  {
+    "type": "MONEY",
+    "share": 0.05
+  }
+]

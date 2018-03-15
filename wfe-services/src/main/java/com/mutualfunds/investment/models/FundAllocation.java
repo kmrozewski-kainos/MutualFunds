@@ -1,6 +1,7 @@
 package com.mutualfunds.investment.models;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

@@ -4,50 +4,50 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    <changeSet id="insert_fund_values" author="konradm">
-        <insert tableName="investment_style">
+    <changeSet id="insert_strategy_values" author="konradm">
+        <insert tableName="strategy">
             <column name="name">SAFE</column>
             <column name="type">POLISH</column>
             <column name="share">0.2</column>
         </insert>
-        <insert tableName="investment_style">
+        <insert tableName="strategy">
             <column name="name">SAFE</column>
             <column name="type">FOREIGN</column>
             <column name="share">0.75</column>
         </insert>
-        <insert tableName="investment_style">
+        <insert tableName="strategy">
             <column name="name">SAFE</column>
             <column name="type">MONEY</column>
             <column name="share">0.05</column>
         </insert>
 
-        <insert tableName="investment_style">
+        <insert tableName="strategy">
             <column name="name">BALANCED</column>
             <column name="type">POLISH</column>
             <column name="share">0.3</column>
         </insert>
-        <insert tableName="investment_style">
+        <insert tableName="strategy">
             <column name="name">BALANCED</column>
             <column name="type">FOREIGN</column>
             <column name="share">0.6</column>
         </insert>
-        <insert tableName="investment_style">
+        <insert tableName="strategy">
             <column name="name">BALANCED</column>
             <column name="type">MONEY</column>
             <column name="share">0.1</column>
         </insert>
 
-        <insert tableName="investment_style">
+        <insert tableName="strategy">
             <column name="name">AGGRESIVE</column>
             <column name="type">POLISH</column>
             <column name="share">0.4</column>
         </insert>
-        <insert tableName="investment_style">
+        <insert tableName="strategy">
             <column name="name">AGGRESIVE</column>
             <column name="type">FOREIGN</column>
             <column name="share">0.2</column>
         </insert>
-        <insert tableName="investment_style">
+        <insert tableName="strategy">
             <column name="name">AGGRESIVE</column>
             <column name="type">MONEY</column>
             <column name="share">0.4</column>

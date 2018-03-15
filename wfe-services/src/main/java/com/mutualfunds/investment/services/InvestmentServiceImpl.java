@@ -23,14 +23,14 @@ import com.mutualfunds.strategy.services.StrategyService;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class InvestmentServiceImpl implements InvestmentService {
 
-    private final @NonNull StrategyService investmentStrategyService;
+    private final @NonNull StrategyService strategyService;
 
     @Override
     public InvestmentPlanResponse getPlan(String strategy, List<Fund> selectedFunds, Integer totalAmount) {
-        val investmentPlan = splitAmountBetweenFundTypes(investmentStrategyService.getInvestmentStrategy(strategy), totalAmount);
+        val investmentPlan = splitAmountBetweenFundTypes(strategyService.getInvestmentStrategy(strategy), totalAmount);
         val investmentSubPlan = getInvestmentSubPlan(investmentPlan, selectedFunds, totalAmount);
 
-        return new InvestmentPlanResponse(investmentSubPlan, getResidual(totalAmount, investmentPlan));
+        return new InvestmentPlanResponse(investmentSubPlan, getResidual(totalAmount, investmentSubPlan));
     }
 
     private List<FundAllocation> splitAmountBetweenFundTypes(List<Strategy> investmentStrategies, Integer amount) {
@@ -71,10 +71,12 @@ public class InvestmentServiceImpl implements InvestmentService {
             .collect(Collectors.toList());
     }
 
-    private Stream<FundAllocation> splitAmountBetweenFunds(List<FundAllocation> sameTypeFundAllocations, Integer amountToInvestInFundType, Integer totalAmount) {
-        Integer amountToInvest = getAmountToInvest(amountToInvestInFundType, 1.00 / sameTypeFundAllocations.size());
-        Double totalShare = (amountToInvest * 1.0) / totalAmount;
-        Integer residual = amountToInvestInFundType - (amountToInvest * sameTypeFundAllocations.size());
+    private Stream<FundAllocation> splitAmountBetweenFunds(List<FundAllocation> sameTypeFundAllocations,
+        Integer amountToInvestInFundType, Integer totalAmount) {
+
+        val amountToInvest = getAmountToInvest(amountToInvestInFundType, 1.00 / sameTypeFundAllocations.size());
+        val totalShare = (amountToInvest * 1.0) / totalAmount;
+        val residual = amountToInvestInFundType - (amountToInvest * sameTypeFundAllocations.size());
 
         sameTypeFundAllocations
             .forEach(fundAllocation -> fundAllocation.setAmount(amountToInvest).setShare(totalShare));

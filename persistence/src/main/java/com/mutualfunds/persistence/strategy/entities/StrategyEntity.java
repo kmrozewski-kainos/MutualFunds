@@ -19,7 +19,7 @@ import org.hibernate.annotations.NamedQuery;
 @Getter
 @Setter
 @Entity
-@Table(name = "investment_style")
+@Table(name = "strategy")
 @NamedQueries({
     @NamedQuery(name = "getInvestmentStyleByName", query = "select i from StrategyEntity i where i.name = :styleType")
 })
