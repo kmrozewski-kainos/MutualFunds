@@ -18,7 +18,7 @@ import com.mutualfunds.persistence.strategy.domains.Strategy;
 import com.mutualfunds.strategy.services.StrategyService;
 
 @Controller
-@RequestMapping("style")
+@RequestMapping("strategy")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class StrategyController {
 
