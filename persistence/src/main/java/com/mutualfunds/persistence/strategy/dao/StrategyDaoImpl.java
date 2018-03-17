@@ -1,5 +1,6 @@
 package com.mutualfunds.persistence.strategy.dao;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import javax.persistence.EntityManager;
@@ -24,19 +25,27 @@ import com.mutualfunds.persistence.strategy.mappers.StrategyMapper;
 public class StrategyDaoImpl implements StrategyDao {
 
     private final @NonNull StrategyMapper mapper;
-    private static final String QUERY_NAME = "getInvestmentStyleByName";
+    private static final String INVESTMENT_STRATEGIES_BY_NAME_QUERY = "getInvestmentStrategiesByName";
+    private static final String INVESTMENT_STRATEGIES_ALL_QUERY = "getAllStrategyNames";
     private static final String FILTERING_ARG = "styleType";
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
-    public Stream<Strategy> getInvestmentStylesByName(String styleType) {
+    public Stream<Strategy> getInvestmentStrategiesByName(String styleType) {
         return entityManager
-            .createNamedQuery(QUERY_NAME, StrategyEntity.class)
+            .createNamedQuery(INVESTMENT_STRATEGIES_BY_NAME_QUERY, StrategyEntity.class)
             .setParameter(FILTERING_ARG, styleType)
             .getResultList()
             .stream()
             .map(mapper::mapEntityToDomain);
+    }
+
+    @Override
+    public List<String> getAllStrategyNames() {
+        return entityManager
+            .createNamedQuery(INVESTMENT_STRATEGIES_ALL_QUERY, String.class)
+            .getResultList();
     }
 }

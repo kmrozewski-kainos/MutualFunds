@@ -21,7 +21,8 @@ import org.hibernate.annotations.NamedQuery;
 @Entity
 @Table(name = "strategy")
 @NamedQueries({
-    @NamedQuery(name = "getInvestmentStyleByName", query = "select i from StrategyEntity i where i.name = :styleType")
+    @NamedQuery(name = "getInvestmentStrategiesByName", query = "select i from StrategyEntity i where i.name = :styleType"),
+    @NamedQuery(name = "getAllStrategyNames", query = "select distinct i.name from StrategyEntity i")
 })
 public class StrategyEntity implements Serializable {
 

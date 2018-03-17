@@ -1,6 +1,7 @@
 package com.mutualfunds.strategy.services;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.everyItem;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -12,6 +13,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 import static com.mutualfunds.util.JSONParser.fromJSON;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import lombok.val;
 
@@ -42,14 +44,14 @@ public class StrategyServiceTest {
         initMocks(this);
         val strategies = fromJSON(STRATEGY_PATH, this.getClass(), new TypeReference<List<Strategy>>() {}).stream();
 
-        when(strategyDao.getInvestmentStylesByName(STRATEGY_SAFE)).thenReturn(strategies);
+        when(strategyDao.getInvestmentStrategiesByName(STRATEGY_SAFE)).thenReturn(strategies);
     }
 
     @Test
     public void when_CalledStrategyService_ExpectDaoToBeCalledAndReturnedDataInCorrectFormat() {
         val strategies = strategyService.getInvestmentStrategyByStyle(STRATEGY_SAFE);
 
-        verify(strategyDao, times(1)).getInvestmentStylesByName(STRATEGY_SAFE);
+        verify(strategyDao, times(1)).getInvestmentStrategiesByName(STRATEGY_SAFE);
         assertThat(strategies.count(), equalTo(STRATEGIES_COUNT));
     }
 
@@ -60,5 +62,17 @@ public class StrategyServiceTest {
         strategies.forEach(strategy -> assertThat(strategy, instanceOf(Strategy.class)));
     }
 
+    @Test
+    public void when_CalledStrategyService_ToSelectAllStrategies_OnlyStringsShouldBeReturned() {
+        val expected = fromJSON(STRATEGY_PATH, this.getClass(), new TypeReference<List<Strategy>>() {})
+            .stream()
+            .map(Strategy::getType)
+            .collect(Collectors.toList());
+        when(strategyDao.getAllStrategyNames()).thenReturn(expected);
 
+        val actual = strategyService.getAllStrategyNames();
+
+        verify(strategyDao, times(1)).getAllStrategyNames();
+        assertThat(actual.size(), equalTo(expected.size()));
+    }
 }

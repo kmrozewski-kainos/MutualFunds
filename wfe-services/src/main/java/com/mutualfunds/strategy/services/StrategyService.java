@@ -9,4 +9,5 @@ public interface StrategyService {
 
     Stream<Strategy> getInvestmentStrategyByStyle(String styleType);
     List<Strategy> getInvestmentStrategiesListByStyle(String styleType);
+    List<String> getAllStrategyNames();
 }
