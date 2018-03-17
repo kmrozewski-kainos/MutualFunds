@@ -2,6 +2,7 @@ package com.mutualfunds.investment.services;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 import static com.mutualfunds.util.JSONParser.fromJSON;
 import static com.mutualfunds.util.ObjectComparator.compare;
@@ -15,7 +16,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -46,10 +46,10 @@ public class InvestmentServiceTest {
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
-        val strategies = fromJSON(STRATEGY_SAFE_PATH, this.getClass(), new TypeReference<List<Strategy>>() {});
+        initMocks(this);
+        val strategies = fromJSON(STRATEGY_SAFE_PATH, this.getClass(), new TypeReference<List<Strategy>>() {}).stream();
 
-        when(strategyService.getInvestmentStrategy(STRATEGY_SAFE)).thenReturn(strategies);
+        when(strategyService.getInvestmentStrategyByStyle(STRATEGY_SAFE)).thenReturn(strategies);
     }
 
     @Test

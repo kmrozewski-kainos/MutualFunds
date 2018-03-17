@@ -27,15 +27,14 @@ public class InvestmentServiceImpl implements InvestmentService {
 
     @Override
     public InvestmentPlanResponse getPlan(String strategy, List<Fund> selectedFunds, Integer totalAmount) {
-        val investmentPlan = splitAmountBetweenFundTypes(strategyService.getInvestmentStrategy(strategy), totalAmount);
+        val investmentPlan = splitAmountBetweenFundTypes(strategyService.getInvestmentStrategyByStyle(strategy), totalAmount);
         val investmentSubPlan = getInvestmentSubPlan(investmentPlan, selectedFunds, totalAmount);
 
         return new InvestmentPlanResponse(investmentSubPlan, getResidual(totalAmount, investmentSubPlan));
     }
 
-    private List<FundAllocation> splitAmountBetweenFundTypes(List<Strategy> investmentStrategies, Integer amount) {
+    private List<FundAllocation> splitAmountBetweenFundTypes(Stream<Strategy> investmentStrategies, Integer amount) {
         return investmentStrategies
-            .stream()
             .map(strategy -> mapToInvestmentAmount(strategy, amount))
             .collect(Collectors.toList());
     }

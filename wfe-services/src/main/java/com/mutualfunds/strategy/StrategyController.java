@@ -26,6 +26,6 @@ public class StrategyController {
 
     @GetMapping("{styleType}")
     public ResponseEntity<List<Strategy>> getInvestmentStyles(@PathVariable(value = "styleType") String styleType) {
-        return new ResponseEntity<>(strategyService.getInvestmentStrategy(styleType), OK);
+        return new ResponseEntity<>(strategyService.getInvestmentStrategiesListByStyle(styleType), OK);
     }
 }
