@@ -48,7 +48,7 @@ public class StrategyServiceTest {
 
     @Test
     public void when_CalledStrategyService_ExpectDaoToBeCalledAndReturnedDataInCorrectFormat() {
-        val strategies = strategyService.getInvestmentStrategyByStyle(STRATEGY_SAFE);
+        val strategies = strategyService.getInvestmentStrategyStreamByStyle(STRATEGY_SAFE);
 
         verify(strategyDao, times(1)).getInvestmentStrategiesByName(STRATEGY_SAFE);
         assertThat(strategies.count(), equalTo(STRATEGIES_COUNT));
@@ -56,7 +56,7 @@ public class StrategyServiceTest {
 
     @Test
     public void when_CalledStrategyService_ExpectAppropriateInstancesToBeReturned() {
-        val strategies = strategyService.getInvestmentStrategyByStyle(STRATEGY_SAFE);
+        val strategies = strategyService.getInvestmentStrategyStreamByStyle(STRATEGY_SAFE);
 
         strategies.forEach(strategy -> assertThat(strategy, instanceOf(Strategy.class)));
     }

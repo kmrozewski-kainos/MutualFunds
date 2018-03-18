@@ -20,14 +20,14 @@ public class StrategyServiceImpl implements StrategyService {
     private final @NonNull StrategyDao strategyDao;
 
     @Override
-    public Stream<Strategy> getInvestmentStrategyByStyle(String styleType) {
+    public Stream<Strategy> getInvestmentStrategyStreamByStyle(String styleType) {
         return strategyDao
             .getInvestmentStrategiesByName(styleType);
     }
 
     @Override
     public List<Strategy> getInvestmentStrategiesListByStyle(String styleType) {
-        return getInvestmentStrategyByStyle(styleType)
+        return getInvestmentStrategyStreamByStyle(styleType)
             .collect(Collectors.toList());
     }
 

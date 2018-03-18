@@ -49,7 +49,7 @@ public class InvestmentServiceTest {
         initMocks(this);
         val strategies = fromJSON(STRATEGY_SAFE_PATH, this.getClass(), new TypeReference<List<Strategy>>() {}).stream();
 
-        when(strategyService.getInvestmentStrategyByStyle(STRATEGY_SAFE)).thenReturn(strategies);
+        when(strategyService.getInvestmentStrategyStreamByStyle(STRATEGY_SAFE)).thenReturn(strategies);
     }
 
     @Test

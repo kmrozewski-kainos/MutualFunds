@@ -7,7 +7,7 @@ import com.mutualfunds.persistence.strategy.domains.Strategy;
 
 public interface StrategyService {
 
-    Stream<Strategy> getInvestmentStrategyByStyle(String styleType);
+    Stream<Strategy> getInvestmentStrategyStreamByStyle(String styleType);
     List<Strategy> getInvestmentStrategiesListByStyle(String styleType);
     List<String> getAllStrategyNames();
 }

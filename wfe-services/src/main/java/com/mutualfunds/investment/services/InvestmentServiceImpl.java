@@ -27,7 +27,7 @@ public class InvestmentServiceImpl implements InvestmentService {
 
     @Override
     public InvestmentPlanResponse getPlan(String strategy, List<Fund> selectedFunds, Integer totalAmount) {
-        val investmentPlan = splitAmountBetweenFundTypes(strategyService.getInvestmentStrategyByStyle(strategy), totalAmount);
+        val investmentPlan = splitAmountBetweenFundTypes(strategyService.getInvestmentStrategyStreamByStyle(strategy), totalAmount);
         val investmentSubPlan = getInvestmentSubPlan(investmentPlan, selectedFunds, totalAmount);
 
         return new InvestmentPlanResponse(investmentSubPlan, getResidual(totalAmount, investmentSubPlan));
