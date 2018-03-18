@@ -2,7 +2,7 @@
 
   <h1>Aplikacja do wyliczania kwot dla funduszy inwestycyjnych</h1>
 
-  <div id="fundsTable" ng-show="areFundsLoaded">
+  <div id="fundsTable" ng-show="areFundsLoaded()">
     <p>Wybierz fundusz</p>
     <table class="table table-hover table-striped">
       <thead class="thead-light">
@@ -20,7 +20,7 @@
     </table>
   </div>
 
-  <form ng-show="areStrategiesLoaded" id="form1">
+  <form ng-show="areStrategiesLoaded()" id="form1">
     <div>
     <p>Strategia inwestycyjna</p>
     <div ng-repeat="strategyName in strategies">

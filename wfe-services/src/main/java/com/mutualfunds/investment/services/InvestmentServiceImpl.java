@@ -33,10 +33,9 @@ public class InvestmentServiceImpl implements InvestmentService {
         return new InvestmentPlanResponse(investmentSubPlan, getResidual(totalAmount, investmentSubPlan));
     }
 
-    private List<FundAllocation> splitAmountBetweenFundTypes(Stream<Strategy> investmentStrategies, Integer amount) {
+    private Stream<FundAllocation> splitAmountBetweenFundTypes(Stream<Strategy> investmentStrategies, Integer amount) {
         return investmentStrategies
-            .map(strategy -> mapToInvestmentAmount(strategy, amount))
-            .collect(Collectors.toList());
+            .map(strategy -> mapToInvestmentAmount(strategy, amount));
     }
 
     private FundAllocation mapToInvestmentAmount(Strategy investment, Integer amount) {
@@ -52,9 +51,8 @@ public class InvestmentServiceImpl implements InvestmentService {
         return amountToInvest.intValue();
     }
 
-    private List<FundAllocation> getInvestmentSubPlan(List<FundAllocation> investmentPlan, List<Fund> selectedFunds, Integer amount) {
+    private List<FundAllocation> getInvestmentSubPlan(Stream<FundAllocation> investmentPlan, List<Fund> selectedFunds, Integer amount) {
         return investmentPlan
-            .stream()
             .flatMap(investmentAmount -> splitAmountBetweenFunds(
                 getFundsByType(investmentAmount.getType(), selectedFunds),
                 investmentAmount.getAmount(),

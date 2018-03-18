@@ -24,6 +24,8 @@ import com.mutualfunds.persistence.fund.mappers.FundMapper;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class FundDaoImpl implements FundDao {
 
+    private static final String FUNDS_ALL_QUERY = "getFunds";
+
     private final @NonNull FundMapper mapper;
 
     @PersistenceContext
@@ -32,7 +34,7 @@ public class FundDaoImpl implements FundDao {
     @Override
     public List<Fund> getAllFunds() {
         return entityManager
-            .createNamedQuery("getFunds", FundEntity.class)
+            .createNamedQuery(FUNDS_ALL_QUERY, FundEntity.class)
             .getResultList()
             .stream()
             .map(mapper::mapEntityToDomain)
