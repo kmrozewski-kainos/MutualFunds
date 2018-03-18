@@ -40,7 +40,6 @@
   		};
 
   		InvestmentService.calculate(request).$promise.then(function (response) {
-  			console.log(response);
   			$scope.plan = response;
   		});
   	}

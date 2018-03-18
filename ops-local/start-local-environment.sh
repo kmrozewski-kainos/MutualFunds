@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
-set -e
-
 # Build wfe-spa package in /wfe-spa/dist
-#cd ../wfe-spa
+rm -r ./wfe-spa/dist
 
-#npm install
-#bower install
-#gulp
-#cp -r ./dist ../ops-local/wfe-spa
+cd ../wfe-spa
+set -e
+npm install
+bower install
+gulp
 
-#cd ../ops-local
+cp -r ./dist ../ops-local/wfe-spa
+cd ../ops-local
 
 # Run db-migrations
-#docker-compose up -d --build db
-#docker-compose up --build dockerize
-#mvn clean install -f ../db-migrations/pom.xml -D liquibase.properties=${PWD}/db/liquibase.properties
+docker-compose up -d --build db
+docker-compose up --build dockerize
+mvn clean install -f ../db-migrations/pom.xml -D liquibase.properties=${PWD}/db/liquibase.properties
 
 # Build wfe-services
 mvn -N install -f ../pom.xml
