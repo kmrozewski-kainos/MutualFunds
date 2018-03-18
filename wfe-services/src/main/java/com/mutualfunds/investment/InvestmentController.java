@@ -21,20 +21,20 @@ import com.mutualfunds.investment.models.InvestmentPlanResponse;
 import com.mutualfunds.investment.services.InvestmentService;
 
 @Controller
-@RequestMapping("fund")
+@RequestMapping("investment")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class InvestmentController {
 
     private final @NonNull InvestmentService investmentService;
 
-    @RequestMapping(value = "plan", method = POST, consumes = "application/json", produces = "application/json")
+    @RequestMapping(method = POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity<InvestmentPlanResponse> getPlan(@Valid @RequestBody InvestmentPlanRequest investmentPlanRequest, Errors errors) {
         if (errors.hasErrors()) {
             return new ResponseEntity<>(BAD_REQUEST);
         }
 
         InvestmentPlanResponse plan = investmentService.getPlan(
-            investmentPlanRequest.getStyle(),
+            investmentPlanRequest.getStrategy(),
             investmentPlanRequest.getFunds(),
             investmentPlanRequest.getAmount());
 
