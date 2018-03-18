@@ -11,6 +11,7 @@
         <spring.version>4.3.2.RELEASE</spring.version>
         <postgres.version>9.4.1212</postgres.version>
         <modelmapper.version>0.7.7</modelmapper.version>
+        <jacoco.version>0.8.0</jacoco.version>
     </properties>
     <modules>
         <module>wfe-services</module>
@@ -42,4 +43,13 @@
             </plugin>
         </plugins>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
