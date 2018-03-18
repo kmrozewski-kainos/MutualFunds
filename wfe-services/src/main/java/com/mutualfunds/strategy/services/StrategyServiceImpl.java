@@ -26,12 +26,6 @@ public class StrategyServiceImpl implements StrategyService {
     }
 
     @Override
-    public List<Strategy> getInvestmentStrategiesListByStyle(String styleType) {
-        return getInvestmentStrategyStreamByStyle(styleType)
-            .collect(Collectors.toList());
-    }
-
-    @Override
     public List<String> getAllStrategyNames() {
         return strategyDao.getAllStrategyNames();
     }
