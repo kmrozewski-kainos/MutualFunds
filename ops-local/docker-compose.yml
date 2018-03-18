@@ -2,7 +2,7 @@ version: '2'
 services:
   db:
     container_name: db
-    build: ./db
+    image: postgres:alpine
     networks:
       - wfe-services-network
     ports:

@@ -15,7 +15,7 @@ cd ../ops-local
 # Run db-migrations
 docker-compose up -d --build db
 docker-compose up --build dockerize
-mvn clean install -f ../db-migrations/pom.xml -D liquibase.properties=${PWD}/db/liquibase.properties
+mvn clean install -f ../db-migrations/pom.xml -D liquibase.properties=${PWD}/db-migrations/liquibase.properties
 
 # Build wfe-services
 mvn -N install -f ../pom.xml
