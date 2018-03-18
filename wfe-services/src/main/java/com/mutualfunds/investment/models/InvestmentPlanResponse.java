@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import com.mutualfunds.investment.models.FundAllocation;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

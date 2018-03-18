@@ -14,8 +14,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.mutualfunds.persistence.fund.entities.FundEntity;
 import com.mutualfunds.persistence.fund.domains.Fund;
+import com.mutualfunds.persistence.fund.entities.FundEntity;
 import com.mutualfunds.persistence.fund.mappers.FundMapper;
 
 @Transactional

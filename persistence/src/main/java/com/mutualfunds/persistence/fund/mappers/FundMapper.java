@@ -7,8 +7,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mutualfunds.persistence.fund.entities.FundEntity;
 import com.mutualfunds.persistence.fund.domains.Fund;
+import com.mutualfunds.persistence.fund.entities.FundEntity;
 
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
