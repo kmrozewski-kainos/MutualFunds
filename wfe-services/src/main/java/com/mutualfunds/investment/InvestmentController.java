@@ -28,7 +28,9 @@ public class InvestmentController {
     private final @NonNull InvestmentService investmentService;
 
     @RequestMapping(method = POST, consumes = "application/json", produces = "application/json")
-    public ResponseEntity<InvestmentPlanResponse> getPlan(@Valid @RequestBody InvestmentPlanRequest investmentPlanRequest, Errors errors) {
+    public ResponseEntity<InvestmentPlanResponse> getPlan(
+        @Valid @RequestBody InvestmentPlanRequest investmentPlanRequest, Errors errors) {
+
         if (errors.hasErrors()) {
             return new ResponseEntity<>(BAD_REQUEST);
         }

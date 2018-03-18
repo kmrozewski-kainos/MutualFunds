@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
-public class CORSConfig {
+public class CorsConfig {
 
     private static final String PATH_PATTERN = "/**";
 
