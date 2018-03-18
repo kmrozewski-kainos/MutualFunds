@@ -8,9 +8,9 @@
     	'API_URL': 'http://localhost:8080/',
     })
     .constant('INVESTMENT_STRATEGIES', {
-    	'SAFE': 'bezpieczny',
-    	'BALANCED': 'zrównoważony',
-    	'AGGRESIVE': 'agresywny'
+    	'SAFE': 'Bezpieczny',
+    	'BALANCED': 'Zrównoważony',
+    	'AGGRESIVE': 'Agresywny'
     })
     .constant('FUND_TYPES', {
         'POLISH': 'Polski',

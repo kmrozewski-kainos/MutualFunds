@@ -47,12 +47,14 @@
 
   	function getFunds() {
   		return FundService.getFunds().$promise.then(function (response) {
+        $scope.areFundsLoaded = true;
   			$scope.funds = response;
   		});
   	}
 
   	function getStrategies() {
   		return StrategyService.getStrategies().$promise.then(function (response) {
+        $scope.areStrategiesLoaded = true;
   			$scope.strategies = response;
   		})
   	}

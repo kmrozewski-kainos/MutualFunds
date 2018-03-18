@@ -1,0 +1,55 @@
+version: '2'
+services:
+  db:
+    container_name: db
+    build: ./db
+    networks:
+      - wfe-services-network
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER = postgres
+      - POSTGRES_PASSWORD = postgres
+      - POSTGRES_DB = postgres
+  dockerize:
+    container_name: dockerize
+    build: ./dockerize
+    depends_on:
+      - db
+    links:
+      - db
+    command: dockerize -wait tcp://db:5432 -timeout 30s
+    networks:
+      - wfe-services-network
+  wfe-services:
+    container_name: wfe-services
+    build: ./wfe-services
+    depends_on:
+      - dockerize
+    links:
+      - db
+      - dockerize
+    networks:
+      - wfe-services-network
+      - wfe-spa-network
+    dns:
+      - 8.8.8.8
+    ports:
+      - "8080:8080"
+      - "5080:5080"
+  wfe-spa:
+    container_name: wfe-spa
+    build: ./wfe-spa
+    networks:
+      - wfe-spa-network
+    ports:
+      - "8888:80"
+    depends_on:
+      - wfe-services
+    links:
+      - wfe-services
+networks:
+  wfe-services-network:
+    driver: bridge
+  wfe-spa-network:
+    driver: bridge
