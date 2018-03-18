@@ -2,7 +2,7 @@ Cool calculator that helps to split amount to invest between selected mutual fun
 
 ## Application modules:
 * db-migrations - liquibase for postgres database migrations,
-* ops-local - docker-compose containers, that helps to build and run the whole app,
+* ops-local - docker-compose containers, that helps to build and run the whole app nicely,
 * persistence - spring data-jpa layer used to pull data from postgres db,
 * wfe-services - rest service made with spring boot - contains business logic,
 * wfe-spa - single page application made in angularjs (1.5), used yeoman generator to create angular with gulp boilerplate. Used to communicate with wfe-services and display data in web browser.
@@ -16,10 +16,10 @@ Cool calculator that helps to split amount to invest between selected mutual fun
 * bower.js (`npm install -g bower`),
 * gulp.js (`npm install -g gulp`).
 
-## Running the app locally
-Go to `ops-local` folder and run the `start-local-environment.sh`  and open `http://localhost:8888/` in your favourite web browser (I tested it on Google Chrome) .
+## Getting started
+Go to `ops-local` folder and run the `start-local-environment.sh`  and open `http://localhost:8888/` in your favourite web browser (ran in Google Chrome) .
 
-### What `start-local-environment.sh` does?
+### What the `start-local-environment.sh` does?
 * builds optimized version of angularjs application and moves it to nginx container,
 * creates `postgres-alpine` docker container and runs liquidate migrations,
 * builds dependencies and then jar of `wfe-services` and moves it to java8-alpine docker image,
@@ -27,9 +27,6 @@ Go to `ops-local` folder and run the `start-local-environment.sh`  and open `htt
 
 ## Unit tests coverage report
 In `wfe-services` run `mvn clean package` in order to generate JaCoCo coverage reports. They’ll be in `target/site/index.html`.
-
-## More info about wfe-spa
-[Go to readme](./wfe-spa/readme.md) in wfe-spa folder.
 
 ## Tech stack
 * Java 8,
@@ -41,3 +38,6 @@ In `wfe-services` run `mvn clean package` in order to generate JaCoCo coverage r
 * Maven,
 * Docker & docker-compose,
 * AngularJS / Gulp / Bower / Yeoman boilerplate generator.
+
+## More info about wfe-spa
+[Go to readme](./wfe-spa/readme.md) in wfe-spa folder.
