@@ -2,6 +2,7 @@ package com.mutualfunds.investment;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import javax.validation.Valid;
@@ -27,7 +28,7 @@ public class InvestmentController {
 
     private final @NonNull InvestmentService investmentService;
 
-    @RequestMapping(method = POST, consumes = "application/json", produces = "application/json")
+    @RequestMapping(method = POST, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<InvestmentPlanResponse> getPlan(
         @Valid @RequestBody InvestmentPlanRequest investmentPlanRequest, Errors errors) {
 
